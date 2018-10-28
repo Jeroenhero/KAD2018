@@ -1,0 +1,2725 @@
+@prefix : <http://www.semanticweb.org/FinalOntology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/FinalOntology> .
+
+<http://www.semanticweb.org/FinalOntology> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://jeroenhero.com/ontologies/Phones/developedBy
+<http://jeroenhero.com/ontologies/Phones/developedBy> rdf:type owl:ObjectProperty ;
+                                                      owl:inverseOf <http://jeroenhero.com/ontologies/Phones/has_developed> ;
+                                                      rdf:type owl:AsymmetricProperty ;
+                                                      rdfs:domain <http://jeroenhero.com/ontologies/Phones/Device> ;
+                                                      rdfs:range <http://jeroenhero.com/ontologies/Phones/Techfirm> .
+
+
+###  http://jeroenhero.com/ontologies/Phones/has_developed
+<http://jeroenhero.com/ontologies/Phones/has_developed> rdf:type owl:ObjectProperty ,
+                                                                 owl:AsymmetricProperty ;
+                                                        rdfs:domain <http://jeroenhero.com/ontologies/Phones/Techfirm> ;
+                                                        rdfs:range <http://jeroenhero.com/ontologies/Phones/Device> .
+
+
+###  http://jeroenhero.com/ontologies/Phones/has_os
+<http://jeroenhero.com/ontologies/Phones/has_os> rdf:type owl:ObjectProperty ;
+                                                 owl:inverseOf <http://jeroenhero.com/ontologies/Phones/os_used_on_device> ;
+                                                 rdf:type owl:AsymmetricProperty ,
+                                                          owl:IrreflexiveProperty ;
+                                                 rdfs:domain <http://jeroenhero.com/ontologies/Phones/Device> ;
+                                                 rdfs:range <http://jeroenhero.com/ontologies/Phones/OperatingSystem> .
+
+
+###  http://jeroenhero.com/ontologies/Phones/os_used_on_device
+<http://jeroenhero.com/ontologies/Phones/os_used_on_device> rdf:type owl:ObjectProperty ,
+                                                                     owl:AsymmetricProperty ,
+                                                                     owl:IrreflexiveProperty ;
+                                                            rdfs:domain <http://jeroenhero.com/ontologies/Phones/OperatingSystem> ;
+                                                            rdfs:range <http://jeroenhero.com/ontologies/Phones/Device> .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/hasOperatingSystem
+<http://www.semanticweb.org/sebas/assignment4/hasOperatingSystem> rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/hasScreenType
+<http://www.semanticweb.org/sebas/assignment4/hasScreenType> rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/inPossessionOf
+<http://www.semanticweb.org/sebas/assignment4/inPossessionOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/isManufacturedBy
+<http://www.semanticweb.org/sebas/assignment4/isManufacturedBy> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://jeroenhero.com/ontologies/Phones/released_in_year
+<http://jeroenhero.com/ontologies/Phones/released_in_year> rdf:type owl:DatatypeProperty ,
+                                                                    owl:FunctionalProperty ;
+                                                           rdfs:domain <http://jeroenhero.com/ontologies/Phones/Device> ;
+                                                           rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/display_name
+<http://www.semanticweb.org/final/smartphonedatabase/display_name> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/get_os
+<http://www.semanticweb.org/final/smartphonedatabase/get_os> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/get_photo
+<http://www.semanticweb.org/final/smartphonedatabase/get_photo> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/get_price
+<http://www.semanticweb.org/final/smartphonedatabase/get_price> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/get_screensize
+<http://www.semanticweb.org/final/smartphonedatabase/get_screensize> rdf:type owl:DatatypeProperty ;
+                                                                     rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/has_big_screen
+<http://www.semanticweb.org/final/smartphonedatabase/has_big_screen> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/has_high_price
+<http://www.semanticweb.org/final/smartphonedatabase/has_high_price> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/onWebsite
+<http://www.semanticweb.org/final/smartphonedatabase/onWebsite> rdf:type owl:DatatypeProperty ;
+                                                                rdfs:domain <http://www.semanticweb.org/final/smartphonedatabase/Smartphone> ;
+                                                                rdfs:range xsd:boolean .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://jeroenhero.com/ontologies/Phones/Device
+<http://jeroenhero.com/ontologies/Phones/Device> rdf:type owl:Class ;
+                                                 owl:equivalentClass <http://www.semanticweb.org/sebas/assignment4/Smartdevice> ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://jeroenhero.com/ontologies/Phones/developedBy> ;
+                                                                       owl:someValuesFrom <http://jeroenhero.com/ontologies/Phones/Techfirm>
+                                                                     ] ;
+                                                 owl:disjointWith <http://jeroenhero.com/ontologies/Phones/OperatingSystem> ,
+                                                                  <http://jeroenhero.com/ontologies/Phones/Techfirm> .
+
+
+###  http://jeroenhero.com/ontologies/Phones/OperatingSystem
+<http://jeroenhero.com/ontologies/Phones/OperatingSystem> rdf:type owl:Class ;
+                                                          owl:equivalentClass <http://www.semanticweb.org/sebas/assignment4/OperatingSystems> ;
+                                                          owl:disjointWith <http://jeroenhero.com/ontologies/Phones/Techfirm> .
+
+
+###  http://jeroenhero.com/ontologies/Phones/Phone
+<http://jeroenhero.com/ontologies/Phones/Phone> rdf:type owl:Class ;
+                                                rdfs:subClassOf <http://jeroenhero.com/ontologies/Phones/Device> ;
+                                                owl:disjointWith <http://jeroenhero.com/ontologies/Phones/Tablet> .
+
+
+###  http://jeroenhero.com/ontologies/Phones/SmartPhone
+<http://jeroenhero.com/ontologies/Phones/SmartPhone> rdf:type owl:Class ;
+                                                     owl:equivalentClass <http://www.semanticweb.org/final/smartphonedatabase/Smartphone> ,
+                                                                         [ owl:intersectionOf ( <http://jeroenhero.com/ontologies/Phones/Phone>
+                                                                                                [ rdf:type owl:Restriction ;
+                                                                                                  owl:onProperty <http://jeroenhero.com/ontologies/Phones/has_os> ;
+                                                                                                  owl:someValuesFrom <http://jeroenhero.com/ontologies/Phones/OperatingSystem>
+                                                                                                ]
+                                                                                              ) ;
+                                                                           rdf:type owl:Class
+                                                                         ] ;
+                                                     rdfs:subClassOf <http://jeroenhero.com/ontologies/Phones/Phone> .
+
+
+###  http://jeroenhero.com/ontologies/Phones/Tablet
+<http://jeroenhero.com/ontologies/Phones/Tablet> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://jeroenhero.com/ontologies/Phones/Device> .
+
+
+###  http://jeroenhero.com/ontologies/Phones/Techfirm
+<http://jeroenhero.com/ontologies/Phones/Techfirm> rdf:type owl:Class ;
+                                                   owl:equivalentClass <http://www.semanticweb.org/sebas/assignment4/Companies> .
+
+
+###  http://jeroenhero.com/ontologies/Phones/iPhone
+<http://jeroenhero.com/ontologies/Phones/iPhone> rdf:type owl:Class ;
+                                                 owl:equivalentClass <http://www.semanticweb.org/sebas/assignment4/iOSPhone> ,
+                                                                     [ owl:intersectionOf ( <http://jeroenhero.com/ontologies/Phones/Phone>
+                                                                                            [ rdf:type owl:Restriction ;
+                                                                                              owl:onProperty <http://jeroenhero.com/ontologies/Phones/has_os> ;
+                                                                                              owl:hasValue <http://jeroenhero.com/ontologies/Phones/iOS>
+                                                                                            ]
+                                                                                          ) ;
+                                                                       rdf:type owl:Class
+                                                                     ] ;
+                                                 rdfs:subClassOf <http://jeroenhero.com/ontologies/Phones/Phone> .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/AndroidPhone
+<http://www.semanticweb.org/final/smartphonedatabase/AndroidPhone> rdf:type owl:Class ;
+                                                                   owl:equivalentClass <http://www.semanticweb.org/sebas/assignment4/AndroidPhone> ;
+                                                                   rdfs:subClassOf <http://www.semanticweb.org/final/smartphonedatabase/Smartphone> ,
+                                                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> ;
+                                                                   owl:disjointWith <http://www.semanticweb.org/final/smartphonedatabase/WindowsPhone> ,
+                                                                                    <http://www.semanticweb.org/final/smartphonedatabase/iOSPhone> .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/BudgetSmartphone
+<http://www.semanticweb.org/final/smartphonedatabase/BudgetSmartphone> rdf:type owl:Class ;
+                                                                       rdfs:subClassOf <http://www.semanticweb.org/final/smartphonedatabase/Smartphone> .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/BudgetWindowsPhone
+<http://www.semanticweb.org/final/smartphonedatabase/BudgetWindowsPhone> rdf:type owl:Class ;
+                                                                         rdfs:subClassOf <http://www.semanticweb.org/final/smartphonedatabase/WindowsPhone> .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/HighEndAndroidPhone
+<http://www.semanticweb.org/final/smartphonedatabase/HighEndAndroidPhone> rdf:type owl:Class ;
+                                                                          rdfs:subClassOf <http://www.semanticweb.org/final/smartphonedatabase/AndroidPhone> .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/HighEndSmartphone
+<http://www.semanticweb.org/final/smartphonedatabase/HighEndSmartphone> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf <http://www.semanticweb.org/final/smartphonedatabase/Smartphone> ,
+                                                                                        [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty <http://www.semanticweb.org/final/smartphonedatabase/has_high_price> ;
+                                                                                          owl:allValuesFrom xsd:boolean
+                                                                                        ] .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/HighEndWindowsPhone
+<http://www.semanticweb.org/final/smartphonedatabase/HighEndWindowsPhone> rdf:type owl:Class ;
+                                                                          rdfs:subClassOf <http://www.semanticweb.org/final/smartphonedatabase/WindowsPhone> .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/Manufacturer
+<http://www.semanticweb.org/final/smartphonedatabase/Manufacturer> rdf:type owl:Class ;
+                                                                   owl:equivalentClass <http://www.semanticweb.org/sebas/assignment4/Companies> .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/MidRangeAndroidPhone
+<http://www.semanticweb.org/final/smartphonedatabase/MidRangeAndroidPhone> rdf:type owl:Class ;
+                                                                           rdfs:subClassOf <http://www.semanticweb.org/final/smartphonedatabase/AndroidPhone> .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/MidRangeSmartphone
+<http://www.semanticweb.org/final/smartphonedatabase/MidRangeSmartphone> rdf:type owl:Class ;
+                                                                         rdfs:subClassOf <http://www.semanticweb.org/final/smartphonedatabase/Smartphone> .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/MidRangeWindowsPhone
+<http://www.semanticweb.org/final/smartphonedatabase/MidRangeWindowsPhone> rdf:type owl:Class ;
+                                                                           rdfs:subClassOf <http://www.semanticweb.org/final/smartphonedatabase/WindowsPhone> .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/NewAndroidPhone
+<http://www.semanticweb.org/final/smartphonedatabase/NewAndroidPhone> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf <http://www.semanticweb.org/final/smartphonedatabase/AndroidPhone> .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/NewSmartphone
+<http://www.semanticweb.org/final/smartphonedatabase/NewSmartphone> rdf:type owl:Class ;
+                                                                    rdfs:subClassOf <http://www.semanticweb.org/final/smartphonedatabase/Smartphone> .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/NewWindowsPhone
+<http://www.semanticweb.org/final/smartphonedatabase/NewWindowsPhone> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf <http://www.semanticweb.org/final/smartphonedatabase/WindowsPhone> .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/NewiOSPhone
+<http://www.semanticweb.org/final/smartphonedatabase/NewiOSPhone> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <http://www.semanticweb.org/final/smartphonedatabase/iOSPhone> .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/OldAndroidPhone
+<http://www.semanticweb.org/final/smartphonedatabase/OldAndroidPhone> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf <http://www.semanticweb.org/final/smartphonedatabase/AndroidPhone> .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/OldSmartphone
+<http://www.semanticweb.org/final/smartphonedatabase/OldSmartphone> rdf:type owl:Class ;
+                                                                    rdfs:subClassOf <http://www.semanticweb.org/final/smartphonedatabase/Smartphone> .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/OldWindowsPhone
+<http://www.semanticweb.org/final/smartphonedatabase/OldWindowsPhone> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf <http://www.semanticweb.org/final/smartphonedatabase/WindowsPhone> .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/OldiOSPhone
+<http://www.semanticweb.org/final/smartphonedatabase/OldiOSPhone> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <http://www.semanticweb.org/final/smartphonedatabase/iOSPhone> .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/Smartphone
+<http://www.semanticweb.org/final/smartphonedatabase/Smartphone> rdf:type owl:Class ;
+                                                                 owl:equivalentClass <http://www.semanticweb.org/sebas/assignment4/Smartphone> ;
+                                                                 owl:disjointWith <http://www.semanticweb.org/sebas/assignment4/Companies> ,
+                                                                                  <http://www.semanticweb.org/sebas/assignment4/OperatingSystems> ,
+                                                                                  <http://www.semanticweb.org/sebas/assignment4/Screentypes> ,
+                                                                                  <http://www.semanticweb.org/sebas/assignment4/SmartDeviceProperties> .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/WindowsPhone
+<http://www.semanticweb.org/final/smartphonedatabase/WindowsPhone> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf <http://www.semanticweb.org/final/smartphonedatabase/Smartphone> ;
+                                                                   owl:disjointWith <http://www.semanticweb.org/final/smartphonedatabase/iOSPhone> .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/iOSPhone
+<http://www.semanticweb.org/final/smartphonedatabase/iOSPhone> rdf:type owl:Class ;
+                                                               owl:equivalentClass <http://www.semanticweb.org/sebas/assignment4/iOSPhone> ;
+                                                               rdfs:subClassOf <http://www.semanticweb.org/final/smartphonedatabase/HighEndSmartphone> ,
+                                                                               <http://www.semanticweb.org/final/smartphonedatabase/Smartphone> .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/AndroidPhone
+<http://www.semanticweb.org/sebas/assignment4/AndroidPhone> rdf:type owl:Class ;
+                                                            rdfs:subClassOf <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/Companies
+<http://www.semanticweb.org/sebas/assignment4/Companies> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/OperatingSystems
+<http://www.semanticweb.org/sebas/assignment4/OperatingSystems> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/Screentypes
+<http://www.semanticweb.org/sebas/assignment4/Screentypes> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/SmartDeviceProperties
+<http://www.semanticweb.org/sebas/assignment4/SmartDeviceProperties> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/Smartdevice
+<http://www.semanticweb.org/sebas/assignment4/Smartdevice> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/Smartphone
+<http://www.semanticweb.org/sebas/assignment4/Smartphone> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <http://www.semanticweb.org/sebas/assignment4/Smartdevice> .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/iOSPhone
+<http://www.semanticweb.org/sebas/assignment4/iOSPhone> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://dbpedia.org/resource/Acer_CloudMobile_S500
+<http://dbpedia.org/resource/Acer_CloudMobile_S500> rdf:type owl:NamedIndividual ,
+                                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Acer_Liquid_Z5
+<http://dbpedia.org/resource/Acer_Liquid_Z5> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Acer_Liquid_Z630
+<http://dbpedia.org/resource/Acer_Liquid_Z630> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Alcatel_Idol_4
+<http://dbpedia.org/resource/Alcatel_Idol_4> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Alcatel_One_Touch_980
+<http://dbpedia.org/resource/Alcatel_One_Touch_980> rdf:type owl:NamedIndividual ,
+                                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Alcatel_One_Touch_990
+<http://dbpedia.org/resource/Alcatel_One_Touch_990> rdf:type owl:NamedIndividual ,
+                                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Alcatel_One_Touch_Fire
+<http://dbpedia.org/resource/Alcatel_One_Touch_Fire> rdf:type owl:NamedIndividual ,
+                                                              <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Aquos_Phone_SH-06D
+<http://dbpedia.org/resource/Aquos_Phone_SH-06D> rdf:type owl:NamedIndividual ,
+                                                          <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Asus_PadFone
+<http://dbpedia.org/resource/Asus_PadFone> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/BQ_Aquaris_E4.5
+<http://dbpedia.org/resource/BQ_Aquaris_E4.5> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/BQ_Aquaris_E5
+<http://dbpedia.org/resource/BQ_Aquaris_E5> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/BlackBerry_Classic
+<http://dbpedia.org/resource/BlackBerry_Classic> rdf:type owl:NamedIndividual ,
+                                                          <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/BlackBerry_Curve_8520
+<http://dbpedia.org/resource/BlackBerry_Curve_8520> rdf:type owl:NamedIndividual ,
+                                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/BlackBerry_DTEK50
+<http://dbpedia.org/resource/BlackBerry_DTEK50> rdf:type owl:NamedIndividual ,
+                                                         <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/BlackBerry_Leap
+<http://dbpedia.org/resource/BlackBerry_Leap> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/BlackBerry_Passport
+<http://dbpedia.org/resource/BlackBerry_Passport> rdf:type owl:NamedIndividual ,
+                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/BlackBerry_Priv
+<http://dbpedia.org/resource/BlackBerry_Priv> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/BlackBerry_Q10
+<http://dbpedia.org/resource/BlackBerry_Q10> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/BlackBerry_Z10
+<http://dbpedia.org/resource/BlackBerry_Z10> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> ;
+                                             <http://www.semanticweb.org/final/smartphonedatabase/display_name> "BlackBerry Z10" ;
+                                             <http://www.semanticweb.org/final/smartphonedatabase/get_os> "BlackBerry OS" ;
+                                             <http://www.semanticweb.org/final/smartphonedatabase/get_photo> "https://s.s-bol.com/imgbase0/imagebase3/large/FC/7/8/8/1/9200000010731887.jpg" ;
+                                             <http://www.semanticweb.org/final/smartphonedatabase/get_price> 124 ;
+                                             <http://www.semanticweb.org/final/smartphonedatabase/get_screensize> "4.2"^^xsd:double ;
+                                             <http://www.semanticweb.org/final/smartphonedatabase/onWebsite> "true"^^xsd:boolean .
+
+
+###  http://dbpedia.org/resource/BlackBerry_Z3
+<http://dbpedia.org/resource/BlackBerry_Z3> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> ;
+                                            <http://www.semanticweb.org/final/smartphonedatabase/get_photo> "" .
+
+
+###  http://dbpedia.org/resource/BlackBerry_Z30
+<http://dbpedia.org/resource/BlackBerry_Z30> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Cat_S60
+<http://dbpedia.org/resource/Cat_S60> rdf:type owl:NamedIndividual ,
+                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Dell_Venue
+<http://dbpedia.org/resource/Dell_Venue> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Dialog_K35
+<http://dbpedia.org/resource/Dialog_K35> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Dialog_K45
+<http://dbpedia.org/resource/Dialog_K45> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Dialog_i43
+<http://dbpedia.org/resource/Dialog_i43> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Droid_4
+<http://dbpedia.org/resource/Droid_4> rdf:type owl:NamedIndividual ,
+                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Droid_Incredible
+<http://dbpedia.org/resource/Droid_Incredible> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Droid_MAXX
+<http://dbpedia.org/resource/Droid_MAXX> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Droid_Mini
+<http://dbpedia.org/resource/Droid_Mini> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Droid_Razr
+<http://dbpedia.org/resource/Droid_Razr> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Droid_Razr_HD
+<http://dbpedia.org/resource/Droid_Razr_HD> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Droid_Razr_M
+<http://dbpedia.org/resource/Droid_Razr_M> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Droid_Turbo
+<http://dbpedia.org/resource/Droid_Turbo> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Droid_Turbo_2
+<http://dbpedia.org/resource/Droid_Turbo_2> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Droid_X
+<http://dbpedia.org/resource/Droid_X> rdf:type owl:NamedIndividual ,
+                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Fairphone_1
+<http://dbpedia.org/resource/Fairphone_1> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Fairphone_2
+<http://dbpedia.org/resource/Fairphone_2> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Fire_Phone
+<http://dbpedia.org/resource/Fire_Phone> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Galaxy_Nexus
+<http://dbpedia.org/resource/Galaxy_Nexus> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/GeeksPhone_One
+<http://dbpedia.org/resource/GeeksPhone_One> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Greenphone
+<http://dbpedia.org/resource/Greenphone> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HP_Pre_3
+<http://dbpedia.org/resource/HP_Pre_3> rdf:type owl:NamedIndividual ,
+                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_10
+<http://dbpedia.org/resource/HTC_10> rdf:type owl:NamedIndividual ,
+                                              <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Amaze_4G
+<http://dbpedia.org/resource/HTC_Amaze_4G> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Butterfly_3
+<http://dbpedia.org/resource/HTC_Butterfly_3> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Butterfly_S
+<http://dbpedia.org/resource/HTC_Butterfly_S> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Cavalier
+<http://dbpedia.org/resource/HTC_Cavalier> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Desire
+<http://dbpedia.org/resource/HTC_Desire> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Desire_310
+<http://dbpedia.org/resource/HTC_Desire_310> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Desire_500
+<http://dbpedia.org/resource/HTC_Desire_500> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Desire_601
+<http://dbpedia.org/resource/HTC_Desire_601> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Desire_620
+<http://dbpedia.org/resource/HTC_Desire_620> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Desire_626
+<http://dbpedia.org/resource/HTC_Desire_626> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Desire_626s
+<http://dbpedia.org/resource/HTC_Desire_626s> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> ;
+                                              <http://www.semanticweb.org/final/smartphonedatabase/get_photo> "" .
+
+
+###  http://dbpedia.org/resource/HTC_Desire_820q_dual_sim
+<http://dbpedia.org/resource/HTC_Desire_820q_dual_sim> rdf:type owl:NamedIndividual ,
+                                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Desire_C
+<http://dbpedia.org/resource/HTC_Desire_C> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Desire_Eye
+<http://dbpedia.org/resource/HTC_Desire_Eye> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Desire_HD
+<http://dbpedia.org/resource/HTC_Desire_HD> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Desire_SV
+<http://dbpedia.org/resource/HTC_Desire_SV> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Desire_V
+<http://dbpedia.org/resource/HTC_Desire_V> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Desire_X
+<http://dbpedia.org/resource/HTC_Desire_X> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Evo_3D
+<http://dbpedia.org/resource/HTC_Evo_3D> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Evo_Design_4G
+<http://dbpedia.org/resource/HTC_Evo_Design_4G> rdf:type owl:NamedIndividual ,
+                                                         <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_First
+<http://dbpedia.org/resource/HTC_First> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Gene
+<http://dbpedia.org/resource/HTC_Gene> rdf:type owl:NamedIndividual ,
+                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Hero
+<http://dbpedia.org/resource/HTC_Hero> rdf:type owl:NamedIndividual ,
+                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Incredible_S
+<http://dbpedia.org/resource/HTC_Incredible_S> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Legend
+<http://dbpedia.org/resource/HTC_Legend> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Magic
+<http://dbpedia.org/resource/HTC_Magic> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_One_A9
+<http://dbpedia.org/resource/HTC_One_A9> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_One_M9
+<http://dbpedia.org/resource/HTC_One_M9> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> ;
+                                         <http://www.semanticweb.org/final/smartphonedatabase/display_name> "HTC One M9" ;
+                                         <http://www.semanticweb.org/final/smartphonedatabase/get_os> "Android" ;
+                                         <http://www.semanticweb.org/final/smartphonedatabase/get_photo> "https://s.s-bol.com/imgbase0/imagebase3/large/FC/3/3/7/9/9200000040299733.jpg" ;
+                                         <http://www.semanticweb.org/final/smartphonedatabase/get_price> 199 ;
+                                         <http://www.semanticweb.org/final/smartphonedatabase/get_screensize> "5.0"^^xsd:double ;
+                                         <http://www.semanticweb.org/final/smartphonedatabase/onWebsite> "true"^^xsd:boolean .
+
+
+###  http://dbpedia.org/resource/HTC_One_Mini
+<http://dbpedia.org/resource/HTC_One_Mini> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_One_Mini_2
+<http://dbpedia.org/resource/HTC_One_Mini_2> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_One_S
+<http://dbpedia.org/resource/HTC_One_S> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_One_V
+<http://dbpedia.org/resource/HTC_One_V> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_One_X
+<http://dbpedia.org/resource/HTC_One_X> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_One_X9
+<http://dbpedia.org/resource/HTC_One_X9> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Raider_4G
+<http://dbpedia.org/resource/HTC_Raider_4G> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Rezound
+<http://dbpedia.org/resource/HTC_Rezound> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Sensation
+<http://dbpedia.org/resource/HTC_Sensation> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Sensation_XL
+<http://dbpedia.org/resource/HTC_Sensation_XL> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Smart
+<http://dbpedia.org/resource/HTC_Smart> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_ThunderBolt
+<http://dbpedia.org/resource/HTC_ThunderBolt> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Touch_Dual
+<http://dbpedia.org/resource/HTC_Touch_Dual> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Wildfire
+<http://dbpedia.org/resource/HTC_Wildfire> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> ;
+                                           <http://www.semanticweb.org/final/smartphonedatabase/get_photo> "" .
+
+
+###  http://dbpedia.org/resource/HTC_Windows_Phone_8S
+<http://dbpedia.org/resource/HTC_Windows_Phone_8S> rdf:type owl:NamedIndividual ,
+                                                            <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Windows_Phone_8X
+<http://dbpedia.org/resource/HTC_Windows_Phone_8X> rdf:type owl:NamedIndividual ,
+                                                            <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_Ascend_G300
+<http://dbpedia.org/resource/Huawei_Ascend_G300> rdf:type owl:NamedIndividual ,
+                                                          <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_Ascend_G330
+<http://dbpedia.org/resource/Huawei_Ascend_G330> rdf:type owl:NamedIndividual ,
+                                                          <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_Ascend_Mate
+<http://dbpedia.org/resource/Huawei_Ascend_Mate> rdf:type owl:NamedIndividual ,
+                                                          <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_Ascend_Mate_2_4G
+<http://dbpedia.org/resource/Huawei_Ascend_Mate_2_4G> rdf:type owl:NamedIndividual ,
+                                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_Ascend_P2
+<http://dbpedia.org/resource/Huawei_Ascend_P2> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_Ascend_P6
+<http://dbpedia.org/resource/Huawei_Ascend_P6> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_Ascend_W1
+<http://dbpedia.org/resource/Huawei_Ascend_W1> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_Ascend_W2
+<http://dbpedia.org/resource/Huawei_Ascend_W2> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_Ascend_Y300
+<http://dbpedia.org/resource/Huawei_Ascend_Y300> rdf:type owl:NamedIndividual ,
+                                                          <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_Honor_4X
+<http://dbpedia.org/resource/Huawei_Honor_4X> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_Honor_6
+<http://dbpedia.org/resource/Huawei_Honor_6> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_Honor_7
+<http://dbpedia.org/resource/Huawei_Honor_7> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_Honor_8
+<http://dbpedia.org/resource/Huawei_Honor_8> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_IDEOS
+<http://dbpedia.org/resource/Huawei_IDEOS> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_Mate_8
+<http://dbpedia.org/resource/Huawei_Mate_8> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_P8
+<http://dbpedia.org/resource/Huawei_P8> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_P8_Lite
+<http://dbpedia.org/resource/Huawei_P8_Lite> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_P9
+<http://dbpedia.org/resource/Huawei_P9> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> ;
+                                        <http://www.semanticweb.org/final/smartphonedatabase/display_name> "Huawei P9" ;
+                                        <http://www.semanticweb.org/final/smartphonedatabase/get_os> "Android" ;
+                                        <http://www.semanticweb.org/final/smartphonedatabase/get_photo> "https://s.s-bol.com/imgbase0/imagebase3/large/FC/6/0/0/0/9200000057560006.jpg" ;
+                                        <http://www.semanticweb.org/final/smartphonedatabase/get_price> 329 ;
+                                        <http://www.semanticweb.org/final/smartphonedatabase/get_screensize> "5.2"^^xsd:double ;
+                                        <http://www.semanticweb.org/final/smartphonedatabase/onWebsite> "true"^^xsd:boolean .
+
+
+###  http://dbpedia.org/resource/Huawei_STREAM_X_GL07S
+<http://dbpedia.org/resource/Huawei_STREAM_X_GL07S> rdf:type owl:NamedIndividual ,
+                                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_Sonic
+<http://dbpedia.org/resource/Huawei_Sonic> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_U8230
+<http://dbpedia.org/resource/Huawei_U8230> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Huawei_U8800
+<http://dbpedia.org/resource/Huawei_U8800> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/IPhone_3G
+<http://dbpedia.org/resource/IPhone_3G> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/IPhone_3GS
+<http://dbpedia.org/resource/IPhone_3GS> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/IPhone_4
+<http://dbpedia.org/resource/IPhone_4> rdf:type owl:NamedIndividual ,
+                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/IPhone_4S
+<http://dbpedia.org/resource/IPhone_4S> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/IPhone_5
+<http://dbpedia.org/resource/IPhone_5> rdf:type owl:NamedIndividual ,
+                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/IPhone_5C
+<http://dbpedia.org/resource/IPhone_5C> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/IPhone_5S
+<http://dbpedia.org/resource/IPhone_5S> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/IPhone_6
+<http://dbpedia.org/resource/IPhone_6> rdf:type owl:NamedIndividual ,
+                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> ;
+                                       owl:sameAs <http://www.semanticweb.org/final/smartphonedatabase/iPhone6> ;
+                                       <http://www.semanticweb.org/final/smartphonedatabase/display_name> "iPhone 6" ;
+                                       <http://www.semanticweb.org/final/smartphonedatabase/get_os> "iOS" ;
+                                       <http://www.semanticweb.org/final/smartphonedatabase/get_photo> "https://image.coolblue.nl/422x390/products/983694" ;
+                                       <http://www.semanticweb.org/final/smartphonedatabase/get_price> 399 ;
+                                       <http://www.semanticweb.org/final/smartphonedatabase/get_screensize> "4.7"^^xsd:double ;
+                                       <http://www.semanticweb.org/final/smartphonedatabase/onWebsite> "true"^^xsd:boolean .
+
+
+###  http://dbpedia.org/resource/IPhone_6S
+<http://dbpedia.org/resource/IPhone_6S> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> ;
+                                        <http://www.semanticweb.org/final/smartphonedatabase/display_name> "iPhone 6S" ;
+                                        <http://www.semanticweb.org/final/smartphonedatabase/get_os> "iOS" ;
+                                        <http://www.semanticweb.org/final/smartphonedatabase/get_photo> "https://image.coolblue.nl/422x390/products/983775" ;
+                                        <http://www.semanticweb.org/final/smartphonedatabase/get_price> 429 ;
+                                        <http://www.semanticweb.org/final/smartphonedatabase/get_screensize> "4.7"^^xsd:double ;
+                                        <http://www.semanticweb.org/final/smartphonedatabase/onWebsite> "true"^^xsd:boolean .
+
+
+###  http://dbpedia.org/resource/IPhone_SE
+<http://dbpedia.org/resource/IPhone_SE> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> ;
+                                        owl:sameAs <http://jeroenhero.com/ontologies/Phones/iPhoneSE> ;
+                                        <http://www.semanticweb.org/final/smartphonedatabase/display_name> "iPhone SE" ;
+                                        <http://www.semanticweb.org/final/smartphonedatabase/get_os> "iOS" ;
+                                        <http://www.semanticweb.org/final/smartphonedatabase/get_photo> "https://image.coolblue.nl/422x390/products/984048" ;
+                                        <http://www.semanticweb.org/final/smartphonedatabase/get_price> 329 ;
+                                        <http://www.semanticweb.org/final/smartphonedatabase/get_screensize> "4.0"^^xsd:double ;
+                                        <http://www.semanticweb.org/final/smartphonedatabase/onWebsite> "true"^^xsd:boolean .
+
+
+###  http://dbpedia.org/resource/Intel_AZ210
+<http://dbpedia.org/resource/Intel_AZ210> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Intex_Cloud_FX
+<http://dbpedia.org/resource/Intex_Cloud_FX> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Isai_VL_LGV31
+<http://dbpedia.org/resource/Isai_VL_LGV31> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Kyocera_6035
+<http://dbpedia.org/resource/Kyocera_6035> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Kyocera_Echo
+<http://dbpedia.org/resource/Kyocera_Echo> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Kyocera_Hydro
+<http://dbpedia.org/resource/Kyocera_Hydro> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Kyocera_Zio
+<http://dbpedia.org/resource/Kyocera_Zio> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_G2
+<http://dbpedia.org/resource/LG_G2> rdf:type owl:NamedIndividual ,
+                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_G2_Mini
+<http://dbpedia.org/resource/LG_G2_Mini> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_G3
+<http://dbpedia.org/resource/LG_G3> rdf:type owl:NamedIndividual ,
+                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_G3_Stylus
+<http://dbpedia.org/resource/LG_G3_Stylus> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_G4
+<http://dbpedia.org/resource/LG_G4> rdf:type owl:NamedIndividual ,
+                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_G5
+<http://dbpedia.org/resource/LG_G5> rdf:type owl:NamedIndividual ,
+                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_G_Flex_2
+<http://dbpedia.org/resource/LG_G_Flex_2> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_G_Pro_2
+<http://dbpedia.org/resource/LG_G_Pro_2> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_G_Pro_Lite
+<http://dbpedia.org/resource/LG_G_Pro_Lite> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Gx
+<http://dbpedia.org/resource/LG_Gx> rdf:type owl:NamedIndividual ,
+                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_K10
+<http://dbpedia.org/resource/LG_K10> rdf:type owl:NamedIndividual ,
+                                              <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Leon
+<http://dbpedia.org/resource/LG_Leon> rdf:type owl:NamedIndividual ,
+                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Optimus_2X
+<http://dbpedia.org/resource/LG_Optimus_2X> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Optimus_3D
+<http://dbpedia.org/resource/LG_Optimus_3D> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Optimus_4X_HD
+<http://dbpedia.org/resource/LG_Optimus_4X_HD> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Optimus_Black
+<http://dbpedia.org/resource/LG_Optimus_Black> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Optimus_G
+<http://dbpedia.org/resource/LG_Optimus_G> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Optimus_G_Pro
+<http://dbpedia.org/resource/LG_Optimus_G_Pro> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Optimus_L2
+<http://dbpedia.org/resource/LG_Optimus_L2> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Optimus_L3
+<http://dbpedia.org/resource/LG_Optimus_L3> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Optimus_L4_II
+<http://dbpedia.org/resource/LG_Optimus_L4_II> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Optimus_L5
+<http://dbpedia.org/resource/LG_Optimus_L5> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Optimus_L5_II
+<http://dbpedia.org/resource/LG_Optimus_L5_II> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Optimus_L7
+<http://dbpedia.org/resource/LG_Optimus_L7> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Optimus_L70
+<http://dbpedia.org/resource/LG_Optimus_L70> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Optimus_L9
+<http://dbpedia.org/resource/LG_Optimus_L9> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Optimus_Q
+<http://dbpedia.org/resource/LG_Optimus_Q> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Optimus_Slider
+<http://dbpedia.org/resource/LG_Optimus_Slider> rdf:type owl:NamedIndividual ,
+                                                         <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Optimus_Vu_II
+<http://dbpedia.org/resource/LG_Optimus_Vu_II> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Optimus_Zip
+<http://dbpedia.org/resource/LG_Optimus_Zip> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Prada_3.0
+<http://dbpedia.org/resource/LG_Prada_3.0> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_VS740
+<http://dbpedia.org/resource/LG_VS740> rdf:type owl:NamedIndividual ,
+                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Vu_3
+<http://dbpedia.org/resource/LG_Vu_3> rdf:type owl:NamedIndividual ,
+                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Lava_Pixel_V1
+<http://dbpedia.org/resource/Lava_Pixel_V1> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Lenovo_A526
+<http://dbpedia.org/resource/Lenovo_A526> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Lenovo_A750
+<http://dbpedia.org/resource/Lenovo_A750> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Lenovo_IdeaPhone_A820
+<http://dbpedia.org/resource/Lenovo_IdeaPhone_A820> rdf:type owl:NamedIndividual ,
+                                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Lenovo_P780
+<http://dbpedia.org/resource/Lenovo_P780> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Lenovo_Vibe_K4_Note
+<http://dbpedia.org/resource/Lenovo_Vibe_K4_Note> rdf:type owl:NamedIndividual ,
+                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Lenovo_Vibe_P1
+<http://dbpedia.org/resource/Lenovo_Vibe_P1> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/MTS_945
+<http://dbpedia.org/resource/MTS_945> rdf:type owl:NamedIndividual ,
+                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_M1_Note
+<http://dbpedia.org/resource/Meizu_M1_Note> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_M2
+<http://dbpedia.org/resource/Meizu_M2> rdf:type owl:NamedIndividual ,
+                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_M2_Note
+<http://dbpedia.org/resource/Meizu_M2_Note> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_M3E
+<http://dbpedia.org/resource/Meizu_M3E> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_M3S
+<http://dbpedia.org/resource/Meizu_M3S> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_M3_Max
+<http://dbpedia.org/resource/Meizu_M3_Max> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_M3_Note
+<http://dbpedia.org/resource/Meizu_M3_Note> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_M9
+<http://dbpedia.org/resource/Meizu_M9> rdf:type owl:NamedIndividual ,
+                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_MX
+<http://dbpedia.org/resource/Meizu_MX> rdf:type owl:NamedIndividual ,
+                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_MX2
+<http://dbpedia.org/resource/Meizu_MX2> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_MX3
+<http://dbpedia.org/resource/Meizu_MX3> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_MX4
+<http://dbpedia.org/resource/Meizu_MX4> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_MX4_Pro
+<http://dbpedia.org/resource/Meizu_MX4_Pro> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_MX4_Ubuntu_Edition
+<http://dbpedia.org/resource/Meizu_MX4_Ubuntu_Edition> rdf:type owl:NamedIndividual ,
+                                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_MX5
+<http://dbpedia.org/resource/Meizu_MX5> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_MX6
+<http://dbpedia.org/resource/Meizu_MX6> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_PRO_5
+<http://dbpedia.org/resource/Meizu_PRO_5> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_PRO_5_Ubuntu_Edition
+<http://dbpedia.org/resource/Meizu_PRO_5_Ubuntu_Edition> rdf:type owl:NamedIndividual ,
+                                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_PRO_6
+<http://dbpedia.org/resource/Meizu_PRO_6> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_Pro_5
+<http://dbpedia.org/resource/Meizu_Pro_5> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_U10
+<http://dbpedia.org/resource/Meizu_U10> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Meizu_U20
+<http://dbpedia.org/resource/Meizu_U20> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Micromax_Canvas_2_A110
+<http://dbpedia.org/resource/Micromax_Canvas_2_A110> rdf:type owl:NamedIndividual ,
+                                                              <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Micromax_Canvas_2_Plus_A110Q
+<http://dbpedia.org/resource/Micromax_Canvas_2_Plus_A110Q> rdf:type owl:NamedIndividual ,
+                                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Micromax_Canvas_A1
+<http://dbpedia.org/resource/Micromax_Canvas_A1> rdf:type owl:NamedIndividual ,
+                                                          <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Micromax_Ninja_A89
+<http://dbpedia.org/resource/Micromax_Ninja_A89> rdf:type owl:NamedIndividual ,
+                                                          <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Microsoft_Lumia
+<http://dbpedia.org/resource/Microsoft_Lumia> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Microsoft_Lumia_430
+<http://dbpedia.org/resource/Microsoft_Lumia_430> rdf:type owl:NamedIndividual ,
+                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Microsoft_Lumia_435
+<http://dbpedia.org/resource/Microsoft_Lumia_435> rdf:type owl:NamedIndividual ,
+                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Microsoft_Lumia_532
+<http://dbpedia.org/resource/Microsoft_Lumia_532> rdf:type owl:NamedIndividual ,
+                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Microsoft_Lumia_535
+<http://dbpedia.org/resource/Microsoft_Lumia_535> rdf:type owl:NamedIndividual ,
+                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Microsoft_Lumia_540
+<http://dbpedia.org/resource/Microsoft_Lumia_540> rdf:type owl:NamedIndividual ,
+                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Microsoft_Lumia_640
+<http://dbpedia.org/resource/Microsoft_Lumia_640> rdf:type owl:NamedIndividual ,
+                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Microsoft_Lumia_650
+<http://dbpedia.org/resource/Microsoft_Lumia_650> rdf:type owl:NamedIndividual ,
+                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Microsoft_Lumia_950
+<http://dbpedia.org/resource/Microsoft_Lumia_950> rdf:type owl:NamedIndividual ,
+                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> ;
+                                                  <http://www.semanticweb.org/final/smartphonedatabase/display_name> "Microsoft Lumia 950" ;
+                                                  <http://www.semanticweb.org/final/smartphonedatabase/get_os> "Windows" ;
+                                                  <http://www.semanticweb.org/final/smartphonedatabase/get_photo> "https://s.s-bol.com/imgbase0/imagebase3/large/FC/3/7/1/1/9200000050611173.jpg" ;
+                                                  <http://www.semanticweb.org/final/smartphonedatabase/get_price> 152 ;
+                                                  <http://www.semanticweb.org/final/smartphonedatabase/get_screensize> "5.2"^^xsd:double ;
+                                                  <http://www.semanticweb.org/final/smartphonedatabase/onWebsite> "true"^^xsd:boolean .
+
+
+###  http://dbpedia.org/resource/Moto_G4
+<http://dbpedia.org/resource/Moto_G4> rdf:type owl:NamedIndividual ,
+                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> ;
+                                      <http://www.semanticweb.org/final/smartphonedatabase/display_name> "Motorola Moto G4" ;
+                                      <http://www.semanticweb.org/final/smartphonedatabase/get_os> "Android" ;
+                                      <http://www.semanticweb.org/final/smartphonedatabase/get_photo> "https://s.s-bol.com/imgbase0/imagebase3/large/FC/2/2/3/7/9200000058737322_3.jpg" ;
+                                      <http://www.semanticweb.org/final/smartphonedatabase/get_price> 199 ;
+                                      <http://www.semanticweb.org/final/smartphonedatabase/get_screensize> "5.5"^^xsd:double ;
+                                      <http://www.semanticweb.org/final/smartphonedatabase/onWebsite> "true"^^xsd:boolean .
+
+
+###  http://dbpedia.org/resource/Moto_X_Play
+<http://dbpedia.org/resource/Moto_X_Play> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Moto_Z
+<http://dbpedia.org/resource/Moto_Z> rdf:type owl:NamedIndividual ,
+                                              <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Motorola_Backflip
+<http://dbpedia.org/resource/Motorola_Backflip> rdf:type owl:NamedIndividual ,
+                                                         <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Motorola_Cliq
+<http://dbpedia.org/resource/Motorola_Cliq> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Motorola_Defy
+<http://dbpedia.org/resource/Motorola_Defy> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Motorola_Droid
+<http://dbpedia.org/resource/Motorola_Droid> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Motorola_Flipout
+<http://dbpedia.org/resource/Motorola_Flipout> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Motorola_Ming
+<http://dbpedia.org/resource/Motorola_Ming> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Motorola_RAZR_i
+<http://dbpedia.org/resource/Motorola_RAZR_i> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Motorola_i1
+<http://dbpedia.org/resource/Motorola_i1> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nexus_4
+<http://dbpedia.org/resource/Nexus_4> rdf:type owl:NamedIndividual ,
+                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nexus_5
+<http://dbpedia.org/resource/Nexus_5> rdf:type owl:NamedIndividual ,
+                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nexus_5X
+<http://dbpedia.org/resource/Nexus_5X> rdf:type owl:NamedIndividual ,
+                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nexus_6
+<http://dbpedia.org/resource/Nexus_6> rdf:type owl:NamedIndividual ,
+                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nexus_6P
+<http://dbpedia.org/resource/Nexus_6P> rdf:type owl:NamedIndividual ,
+                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nexus_S
+<http://dbpedia.org/resource/Nexus_S> rdf:type owl:NamedIndividual ,
+                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_603
+<http://dbpedia.org/resource/Nokia_603> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_700
+<http://dbpedia.org/resource/Nokia_700> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_701
+<http://dbpedia.org/resource/Nokia_701> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_E5-00
+<http://dbpedia.org/resource/Nokia_E5-00> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_E72
+<http://dbpedia.org/resource/Nokia_E72> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_1020
+<http://dbpedia.org/resource/Nokia_Lumia_1020> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_1320
+<http://dbpedia.org/resource/Nokia_Lumia_1320> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_1520
+<http://dbpedia.org/resource/Nokia_Lumia_1520> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_505
+<http://dbpedia.org/resource/Nokia_Lumia_505> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_520
+<http://dbpedia.org/resource/Nokia_Lumia_520> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_530
+<http://dbpedia.org/resource/Nokia_Lumia_530> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_620
+<http://dbpedia.org/resource/Nokia_Lumia_620> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_625
+<http://dbpedia.org/resource/Nokia_Lumia_625> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_630
+<http://dbpedia.org/resource/Nokia_Lumia_630> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_720
+<http://dbpedia.org/resource/Nokia_Lumia_720> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_735
+<http://dbpedia.org/resource/Nokia_Lumia_735> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_810
+<http://dbpedia.org/resource/Nokia_Lumia_810> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_820
+<http://dbpedia.org/resource/Nokia_Lumia_820> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_822
+<http://dbpedia.org/resource/Nokia_Lumia_822> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_830
+<http://dbpedia.org/resource/Nokia_Lumia_830> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_920
+<http://dbpedia.org/resource/Nokia_Lumia_920> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_925
+<http://dbpedia.org/resource/Nokia_Lumia_925> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_928
+<http://dbpedia.org/resource/Nokia_Lumia_928> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_930
+<http://dbpedia.org/resource/Nokia_Lumia_930> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> ;
+                                              <http://www.semanticweb.org/final/smartphonedatabase/display_name> "Nokia Lumia 930" ;
+                                              <http://www.semanticweb.org/final/smartphonedatabase/get_os> "Windows" ;
+                                              <http://www.semanticweb.org/final/smartphonedatabase/get_photo> "https://s.s-bol.com/imgbase0/imagebase3/large/FC/4/8/3/8/9200000028138384_1.jpg" ;
+                                              <http://www.semanticweb.org/final/smartphonedatabase/get_price> 499 ;
+                                              <http://www.semanticweb.org/final/smartphonedatabase/get_screensize> "5.0"^^xsd:double ;
+                                              <http://www.semanticweb.org/final/smartphonedatabase/onWebsite> "true"^^xsd:boolean .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_Icon
+<http://dbpedia.org/resource/Nokia_Lumia_Icon> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_Lumia_McLaren
+<http://dbpedia.org/resource/Nokia_Lumia_McLaren> rdf:type owl:NamedIndividual ,
+                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_X_family
+<http://dbpedia.org/resource/Nokia_X_family> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/OPPO_R7
+<http://dbpedia.org/resource/OPPO_R7> rdf:type owl:NamedIndividual ,
+                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/OnePlus_X
+<http://dbpedia.org/resource/OnePlus_X> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Oppo_N1
+<http://dbpedia.org/resource/Oppo_N1> rdf:type owl:NamedIndividual ,
+                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/QMobile_Noir_Quatro_Z4
+<http://dbpedia.org/resource/QMobile_Noir_Quatro_Z4> rdf:type owl:NamedIndividual ,
+                                                              <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Redmi_1S
+<http://dbpedia.org/resource/Redmi_1S> rdf:type owl:NamedIndividual ,
+                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Redmi_Note_Prime
+<http://dbpedia.org/resource/Redmi_Note_Prime> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_ATIV_SE
+<http://dbpedia.org/resource/Samsung_ATIV_SE> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Ativ_Odyssey
+<http://dbpedia.org/resource/Samsung_Ativ_Odyssey> rdf:type owl:NamedIndividual ,
+                                                            <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Ativ_S
+<http://dbpedia.org/resource/Samsung_Ativ_S> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Captivate_Glide
+<http://dbpedia.org/resource/Samsung_Captivate_Glide> rdf:type owl:NamedIndividual ,
+                                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Exhibit_4G
+<http://dbpedia.org/resource/Samsung_Exhibit_4G> rdf:type owl:NamedIndividual ,
+                                                          <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_A9_Pro
+<http://dbpedia.org/resource/Samsung_Galaxy_A9_Pro> rdf:type owl:NamedIndividual ,
+                                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Ace
+<http://dbpedia.org/resource/Samsung_Galaxy_Ace> rdf:type owl:NamedIndividual ,
+                                                          <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Ace_2
+<http://dbpedia.org/resource/Samsung_Galaxy_Ace_2> rdf:type owl:NamedIndividual ,
+                                                            <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Ace_3
+<http://dbpedia.org/resource/Samsung_Galaxy_Ace_3> rdf:type owl:NamedIndividual ,
+                                                            <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Ace_4
+<http://dbpedia.org/resource/Samsung_Galaxy_Ace_4> rdf:type owl:NamedIndividual ,
+                                                            <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Ace_Plus
+<http://dbpedia.org/resource/Samsung_Galaxy_Ace_Plus> rdf:type owl:NamedIndividual ,
+                                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Active_Neo
+<http://dbpedia.org/resource/Samsung_Galaxy_Active_Neo> rdf:type owl:NamedIndividual ,
+                                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Alpha
+<http://dbpedia.org/resource/Samsung_Galaxy_Alpha> rdf:type owl:NamedIndividual ,
+                                                            <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Beam_i8530
+<http://dbpedia.org/resource/Samsung_Galaxy_Beam_i8530> rdf:type owl:NamedIndividual ,
+                                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Core_2
+<http://dbpedia.org/resource/Samsung_Galaxy_Core_2> rdf:type owl:NamedIndividual ,
+                                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Core_Advance
+<http://dbpedia.org/resource/Samsung_Galaxy_Core_Advance> rdf:type owl:NamedIndividual ,
+                                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Core_LTE
+<http://dbpedia.org/resource/Samsung_Galaxy_Core_LTE> rdf:type owl:NamedIndividual ,
+                                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Core_Prime
+<http://dbpedia.org/resource/Samsung_Galaxy_Core_Prime> rdf:type owl:NamedIndividual ,
+                                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_E5
+<http://dbpedia.org/resource/Samsung_Galaxy_E5> rdf:type owl:NamedIndividual ,
+                                                         <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Gio
+<http://dbpedia.org/resource/Samsung_Galaxy_Gio> rdf:type owl:NamedIndividual ,
+                                                          <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Grand
+<http://dbpedia.org/resource/Samsung_Galaxy_Grand> rdf:type owl:NamedIndividual ,
+                                                            <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Grand_2
+<http://dbpedia.org/resource/Samsung_Galaxy_Grand_2> rdf:type owl:NamedIndividual ,
+                                                              <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Grand_Prime
+<http://dbpedia.org/resource/Samsung_Galaxy_Grand_Prime> rdf:type owl:NamedIndividual ,
+                                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_J5
+<http://dbpedia.org/resource/Samsung_Galaxy_J5> rdf:type owl:NamedIndividual ,
+                                                         <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_J7
+<http://dbpedia.org/resource/Samsung_Galaxy_J7> rdf:type owl:NamedIndividual ,
+                                                         <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Mega
+<http://dbpedia.org/resource/Samsung_Galaxy_Mega> rdf:type owl:NamedIndividual ,
+                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Mini
+<http://dbpedia.org/resource/Samsung_Galaxy_Mini> rdf:type owl:NamedIndividual ,
+                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Mini_2
+<http://dbpedia.org/resource/Samsung_Galaxy_Mini_2> rdf:type owl:NamedIndividual ,
+                                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Note_3
+<http://dbpedia.org/resource/Samsung_Galaxy_Note_3> rdf:type owl:NamedIndividual ,
+                                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Note_3_Neo
+<http://dbpedia.org/resource/Samsung_Galaxy_Note_3_Neo> rdf:type owl:NamedIndividual ,
+                                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Note_Edge
+<http://dbpedia.org/resource/Samsung_Galaxy_Note_Edge> rdf:type owl:NamedIndividual ,
+                                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Note_II
+<http://dbpedia.org/resource/Samsung_Galaxy_Note_II> rdf:type owl:NamedIndividual ,
+                                                              <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_On5
+<http://dbpedia.org/resource/Samsung_Galaxy_On5> rdf:type owl:NamedIndividual ,
+                                                          <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_On7
+<http://dbpedia.org/resource/Samsung_Galaxy_On7> rdf:type owl:NamedIndividual ,
+                                                          <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_R
+<http://dbpedia.org/resource/Samsung_Galaxy_R> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Round
+<http://dbpedia.org/resource/Samsung_Galaxy_Round> rdf:type owl:NamedIndividual ,
+                                                            <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_S4
+<http://dbpedia.org/resource/Samsung_Galaxy_S4> rdf:type owl:NamedIndividual ,
+                                                         <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_S4_Active
+<http://dbpedia.org/resource/Samsung_Galaxy_S4_Active> rdf:type owl:NamedIndividual ,
+                                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_S4_Mini
+<http://dbpedia.org/resource/Samsung_Galaxy_S4_Mini> rdf:type owl:NamedIndividual ,
+                                                              <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_S5
+<http://dbpedia.org/resource/Samsung_Galaxy_S5> rdf:type owl:NamedIndividual ,
+                                                         <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_S5_Mini
+<http://dbpedia.org/resource/Samsung_Galaxy_S5_Mini> rdf:type owl:NamedIndividual ,
+                                                              <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_S6
+<http://dbpedia.org/resource/Samsung_Galaxy_S6> rdf:type owl:NamedIndividual ,
+                                                         <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_S6_Active
+<http://dbpedia.org/resource/Samsung_Galaxy_S6_Active> rdf:type owl:NamedIndividual ,
+                                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_S7
+<http://dbpedia.org/resource/Samsung_Galaxy_S7> rdf:type owl:NamedIndividual ,
+                                                         <http://www.semanticweb.org/sebas/assignment4/Smartphone> ;
+                                                <http://www.semanticweb.org/final/smartphonedatabase/display_name> "Samsung Galaxy S7" ;
+                                                <http://www.semanticweb.org/final/smartphonedatabase/get_os> "Android" ;
+                                                <http://www.semanticweb.org/final/smartphonedatabase/get_photo> "https://s.s-bol.com/imgbase0/imagebase3/large/FC/7/3/1/1/9200000054961137.jpg" ;
+                                                <http://www.semanticweb.org/final/smartphonedatabase/get_price> 349 ;
+                                                <http://www.semanticweb.org/final/smartphonedatabase/get_screensize> "5.1"^^xsd:double ;
+                                                <http://www.semanticweb.org/final/smartphonedatabase/onWebsite> "true"^^xsd:boolean .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_S9
+<http://dbpedia.org/resource/Samsung_Galaxy_S9> rdf:type owl:NamedIndividual ,
+                                                         <http://www.semanticweb.org/sebas/assignment4/Smartphone> ;
+                                                <http://www.semanticweb.org/final/smartphonedatabase/display_name> "Samsung Galaxy S9" ;
+                                                <http://www.semanticweb.org/final/smartphonedatabase/get_os> "Android" ;
+                                                <http://www.semanticweb.org/final/smartphonedatabase/get_photo> "https://s.s-bol.com/imgbase0/imagebase3/large/FC/9/7/8/4/9200000089764879.jpg" ;
+                                                <http://www.semanticweb.org/final/smartphonedatabase/get_price> 659 ;
+                                                <http://www.semanticweb.org/final/smartphonedatabase/get_screensize> "5.8"^^xsd:double ;
+                                                <http://www.semanticweb.org/final/smartphonedatabase/onWebsite> "true"^^xsd:boolean .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_SL_I9003
+<http://dbpedia.org/resource/Samsung_Galaxy_SL_I9003> rdf:type owl:NamedIndividual ,
+                                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_S_4G_LTE
+<http://dbpedia.org/resource/Samsung_Galaxy_S_4G_LTE> rdf:type owl:NamedIndividual ,
+                                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_S_Duos_2
+<http://dbpedia.org/resource/Samsung_Galaxy_S_Duos_2> rdf:type owl:NamedIndividual ,
+                                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_S_Duos_3
+<http://dbpedia.org/resource/Samsung_Galaxy_S_Duos_3> rdf:type owl:NamedIndividual ,
+                                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_S_II
+<http://dbpedia.org/resource/Samsung_Galaxy_S_II> rdf:type owl:NamedIndividual ,
+                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_S_III
+<http://dbpedia.org/resource/Samsung_Galaxy_S_III> rdf:type owl:NamedIndividual ,
+                                                            <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_S_III_Mini
+<http://dbpedia.org/resource/Samsung_Galaxy_S_III_Mini> rdf:type owl:NamedIndividual ,
+                                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_S_Relay_4G
+<http://dbpedia.org/resource/Samsung_Galaxy_S_Relay_4G> rdf:type owl:NamedIndividual ,
+                                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Star
+<http://dbpedia.org/resource/Samsung_Galaxy_Star> rdf:type owl:NamedIndividual ,
+                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Star_2_Plus
+<http://dbpedia.org/resource/Samsung_Galaxy_Star_2_Plus> rdf:type owl:NamedIndividual ,
+                                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_W
+<http://dbpedia.org/resource/Samsung_Galaxy_W> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Win
+<http://dbpedia.org/resource/Samsung_Galaxy_Win> rdf:type owl:NamedIndividual ,
+                                                          <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Xcover
+<http://dbpedia.org/resource/Samsung_Galaxy_Xcover> rdf:type owl:NamedIndividual ,
+                                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Xcover_2
+<http://dbpedia.org/resource/Samsung_Galaxy_Xcover_2> rdf:type owl:NamedIndividual ,
+                                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Y
+<http://dbpedia.org/resource/Samsung_Galaxy_Y> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Y_DUOS
+<http://dbpedia.org/resource/Samsung_Galaxy_Y_DUOS> rdf:type owl:NamedIndividual ,
+                                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Y_Plus
+<http://dbpedia.org/resource/Samsung_Galaxy_Y_Plus> rdf:type owl:NamedIndividual ,
+                                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Y_Pro_DUOS
+<http://dbpedia.org/resource/Samsung_Galaxy_Y_Pro_DUOS> rdf:type owl:NamedIndividual ,
+                                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Omnia_7
+<http://dbpedia.org/resource/Samsung_Omnia_7> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Omnia_W
+<http://dbpedia.org/resource/Samsung_Omnia_W> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Rugby_Smart
+<http://dbpedia.org/resource/Samsung_Rugby_Smart> rdf:type owl:NamedIndividual ,
+                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_SCH-R810
+<http://dbpedia.org/resource/Samsung_SCH-R810> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Z1
+<http://dbpedia.org/resource/Samsung_Z1> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Z3
+<http://dbpedia.org/resource/Samsung_Z3> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sendo_X2
+<http://dbpedia.org/resource/Sendo_X2> rdf:type owl:NamedIndividual ,
+                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sendo_Z100
+<http://dbpedia.org/resource/Sendo_Z100> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Ericsson_Xperia_X8
+<http://dbpedia.org/resource/Sony_Ericsson_Xperia_X8> rdf:type owl:NamedIndividual ,
+                                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Ericsson_Xperia_active
+<http://dbpedia.org/resource/Sony_Ericsson_Xperia_active> rdf:type owl:NamedIndividual ,
+                                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Ericsson_Xperia_arc_S
+<http://dbpedia.org/resource/Sony_Ericsson_Xperia_arc_S> rdf:type owl:NamedIndividual ,
+                                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Ericsson_Xperia_ray
+<http://dbpedia.org/resource/Sony_Ericsson_Xperia_ray> rdf:type owl:NamedIndividual ,
+                                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_C
+<http://dbpedia.org/resource/Sony_Xperia_C> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_C3
+<http://dbpedia.org/resource/Sony_Xperia_C3> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_C4
+<http://dbpedia.org/resource/Sony_Xperia_C4> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_E
+<http://dbpedia.org/resource/Sony_Xperia_E> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_E1
+<http://dbpedia.org/resource/Sony_Xperia_E1> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_E3
+<http://dbpedia.org/resource/Sony_Xperia_E3> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_E4
+<http://dbpedia.org/resource/Sony_Xperia_E4> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_Go
+<http://dbpedia.org/resource/Sony_Xperia_Go> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_Ion
+<http://dbpedia.org/resource/Sony_Xperia_Ion> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_J
+<http://dbpedia.org/resource/Sony_Xperia_J> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_L
+<http://dbpedia.org/resource/Sony_Xperia_L> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_M2
+<http://dbpedia.org/resource/Sony_Xperia_M2> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_M4_Aqua
+<http://dbpedia.org/resource/Sony_Xperia_M4_Aqua> rdf:type owl:NamedIndividual ,
+                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_M5
+<http://dbpedia.org/resource/Sony_Xperia_M5> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_P
+<http://dbpedia.org/resource/Sony_Xperia_P> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_S
+<http://dbpedia.org/resource/Sony_Xperia_S> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_SP
+<http://dbpedia.org/resource/Sony_Xperia_SP> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_T
+<http://dbpedia.org/resource/Sony_Xperia_T> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_T2_Ultra
+<http://dbpedia.org/resource/Sony_Xperia_T2_Ultra> rdf:type owl:NamedIndividual ,
+                                                            <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_TX
+<http://dbpedia.org/resource/Sony_Xperia_TX> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_U
+<http://dbpedia.org/resource/Sony_Xperia_U> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_X
+<http://dbpedia.org/resource/Sony_Xperia_X> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_XA
+<http://dbpedia.org/resource/Sony_Xperia_XA> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_XZ
+<http://dbpedia.org/resource/Sony_Xperia_XZ> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_X_Compact
+<http://dbpedia.org/resource/Sony_Xperia_X_Compact> rdf:type owl:NamedIndividual ,
+                                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_X_Performance
+<http://dbpedia.org/resource/Sony_Xperia_X_Performance> rdf:type owl:NamedIndividual ,
+                                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_Z
+<http://dbpedia.org/resource/Sony_Xperia_Z> rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_Z1
+<http://dbpedia.org/resource/Sony_Xperia_Z1> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_Z1_Compact
+<http://dbpedia.org/resource/Sony_Xperia_Z1_Compact> rdf:type owl:NamedIndividual ,
+                                                              <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_Z2
+<http://dbpedia.org/resource/Sony_Xperia_Z2> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_Z3
+<http://dbpedia.org/resource/Sony_Xperia_Z3> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_Z3_Compact
+<http://dbpedia.org/resource/Sony_Xperia_Z3_Compact> rdf:type owl:NamedIndividual ,
+                                                              <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_Z5
+<http://dbpedia.org/resource/Sony_Xperia_Z5> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> ;
+                                             <http://www.semanticweb.org/final/smartphonedatabase/display_name> "Sony Xperia Z5" ;
+                                             <http://www.semanticweb.org/final/smartphonedatabase/get_os> "Android" ;
+                                             <http://www.semanticweb.org/final/smartphonedatabase/get_photo> "https://s.s-bol.com/imgbase0/imagebase3/large/FC/6/6/6/2/9200000047912666.jpg" ;
+                                             <http://www.semanticweb.org/final/smartphonedatabase/get_price> 279 ;
+                                             <http://www.semanticweb.org/final/smartphonedatabase/get_screensize> "5.2"^^xsd:double ;
+                                             <http://www.semanticweb.org/final/smartphonedatabase/onWebsite> "true"^^xsd:boolean .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_Z5_Premium
+<http://dbpedia.org/resource/Sony_Xperia_Z5_Premium> rdf:type owl:NamedIndividual ,
+                                                              <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_ZL
+<http://dbpedia.org/resource/Sony_Xperia_ZL> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_ZR
+<http://dbpedia.org/resource/Sony_Xperia_ZR> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_Z_Ultra
+<http://dbpedia.org/resource/Sony_Xperia_Z_Ultra> rdf:type owl:NamedIndividual ,
+                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_acro_S
+<http://dbpedia.org/resource/Sony_Xperia_acro_S> rdf:type owl:NamedIndividual ,
+                                                          <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_miro
+<http://dbpedia.org/resource/Sony_Xperia_miro> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_neo_L
+<http://dbpedia.org/resource/Sony_Xperia_neo_L> rdf:type owl:NamedIndividual ,
+                                                         <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_sola
+<http://dbpedia.org/resource/Sony_Xperia_sola> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_tipo
+<http://dbpedia.org/resource/Sony_Xperia_tipo> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/T-Mobile_myTouch_3G_Slide
+<http://dbpedia.org/resource/T-Mobile_myTouch_3G_Slide> rdf:type owl:NamedIndividual ,
+                                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/T-Mobile_myTouch_4G
+<http://dbpedia.org/resource/T-Mobile_myTouch_4G> rdf:type owl:NamedIndividual ,
+                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/T-Mobile_myTouch_4G_Slide
+<http://dbpedia.org/resource/T-Mobile_myTouch_4G_Slide> rdf:type owl:NamedIndividual ,
+                                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/T-Mobile_myTouch_Q_by_LG_and_T-Mobile_myTouch_by_LG
+<http://dbpedia.org/resource/T-Mobile_myTouch_Q_by_LG_and_T-Mobile_myTouch_by_LG> rdf:type owl:NamedIndividual ,
+                                                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Treo_600
+<http://dbpedia.org/resource/Treo_600> rdf:type owl:NamedIndividual ,
+                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Treo_700p
+<http://dbpedia.org/resource/Treo_700p> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Ubuntu_Edge
+<http://dbpedia.org/resource/Ubuntu_Edge> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Vertu_Ti
+<http://dbpedia.org/resource/Vertu_Ti> rdf:type owl:NamedIndividual ,
+                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Vibo_A688
+<http://dbpedia.org/resource/Vibo_A688> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Xiaomi_Mi4i
+<http://dbpedia.org/resource/Xiaomi_Mi4i> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Xiaomi_Mi_1
+<http://dbpedia.org/resource/Xiaomi_Mi_1> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Xiaomi_Mi_2
+<http://dbpedia.org/resource/Xiaomi_Mi_2> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Xiaomi_Mi_2A
+<http://dbpedia.org/resource/Xiaomi_Mi_2A> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Xiaomi_Mi_2S
+<http://dbpedia.org/resource/Xiaomi_Mi_2S> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Xiaomi_Mi_3
+<http://dbpedia.org/resource/Xiaomi_Mi_3> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Xiaomi_Mi_4
+<http://dbpedia.org/resource/Xiaomi_Mi_4> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Xiaomi_Mi_4c
+<http://dbpedia.org/resource/Xiaomi_Mi_4c> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Xiaomi_Mi_Note
+<http://dbpedia.org/resource/Xiaomi_Mi_Note> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Xiaomi_Redmi_2
+<http://dbpedia.org/resource/Xiaomi_Redmi_2> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Xiaomi_Redmi_3
+<http://dbpedia.org/resource/Xiaomi_Redmi_3> rdf:type owl:NamedIndividual ,
+                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Xiaomi_Redmi_Note_3
+<http://dbpedia.org/resource/Xiaomi_Redmi_Note_3> rdf:type owl:NamedIndividual ,
+                                                           <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Xperia_Play
+<http://dbpedia.org/resource/Xperia_Play> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/YU_Yureka
+<http://dbpedia.org/resource/YU_Yureka> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/ZTE_Blade
+<http://dbpedia.org/resource/ZTE_Blade> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/ZTE_Engage
+<http://dbpedia.org/resource/ZTE_Engage> rdf:type owl:NamedIndividual ,
+                                                  <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/ZTE_Racer
+<http://dbpedia.org/resource/ZTE_Racer> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/ZTE_Racer_II
+<http://dbpedia.org/resource/ZTE_Racer_II> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/ZTE_Skate
+<http://dbpedia.org/resource/ZTE_Skate> rdf:type owl:NamedIndividual ,
+                                                 <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Arirang_(smartphone)
+<http://dbpedia.org/resource/Arirang_(smartphone)> rdf:type owl:NamedIndividual ,
+                                                            <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/BlackBerry_Porsche_Design_P'9982
+<http://dbpedia.org/resource/BlackBerry_Porsche_Design_P'9982> rdf:type owl:NamedIndividual ,
+                                                                        <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Casio_G'zOne_Commando
+<http://dbpedia.org/resource/Casio_G'zOne_Commando> rdf:type owl:NamedIndividual ,
+                                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_Evo_4G+
+<http://dbpedia.org/resource/HTC_Evo_4G+> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_One_(M7)
+<http://dbpedia.org/resource/HTC_One_(M7)> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_One_(M8)
+<http://dbpedia.org/resource/HTC_One_(M8)> rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_One_E9+
+<http://dbpedia.org/resource/HTC_One_E9+> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/HTC_One_M9+
+<http://dbpedia.org/resource/HTC_One_M9+> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/IPhone_(1st_generation)
+<http://dbpedia.org/resource/IPhone_(1st_generation)> rdf:type owl:NamedIndividual ,
+                                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/LG_Optimus_(original)
+<http://dbpedia.org/resource/LG_Optimus_(original)> rdf:type owl:NamedIndividual ,
+                                                             <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Moto_E_(1st_generation)
+<http://dbpedia.org/resource/Moto_E_(1st_generation)> rdf:type owl:NamedIndividual ,
+                                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Moto_E_(2nd_generation)
+<http://dbpedia.org/resource/Moto_E_(2nd_generation)> rdf:type owl:NamedIndividual ,
+                                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Moto_G_(1st_generation)
+<http://dbpedia.org/resource/Moto_G_(1st_generation)> rdf:type owl:NamedIndividual ,
+                                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Moto_G_(2nd_generation)
+<http://dbpedia.org/resource/Moto_G_(2nd_generation)> rdf:type owl:NamedIndividual ,
+                                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Moto_G_(3rd_generation)
+<http://dbpedia.org/resource/Moto_G_(3rd_generation)> rdf:type owl:NamedIndividual ,
+                                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Moto_X_(1st_generation)
+<http://dbpedia.org/resource/Moto_X_(1st_generation)> rdf:type owl:NamedIndividual ,
+                                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Moto_X_(2nd_generation)
+<http://dbpedia.org/resource/Moto_X_(2nd_generation)> rdf:type owl:NamedIndividual ,
+                                                               <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Nokia_X2_(2014)
+<http://dbpedia.org/resource/Nokia_X2_(2014)> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Pixel_(smartphone)
+<http://dbpedia.org/resource/Pixel_(smartphone)> rdf:type owl:NamedIndividual ,
+                                                          <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_A3_(2016)
+<http://dbpedia.org/resource/Samsung_Galaxy_A3_(2016)> rdf:type owl:NamedIndividual ,
+                                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_A5_(2015)
+<http://dbpedia.org/resource/Samsung_Galaxy_A5_(2015)> rdf:type owl:NamedIndividual ,
+                                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_A5_(2016)
+<http://dbpedia.org/resource/Samsung_Galaxy_A5_(2016)> rdf:type owl:NamedIndividual ,
+                                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_A7_(2016)
+<http://dbpedia.org/resource/Samsung_Galaxy_A7_(2016)> rdf:type owl:NamedIndividual ,
+                                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_J5_(2016)
+<http://dbpedia.org/resource/Samsung_Galaxy_J5_(2016)> rdf:type owl:NamedIndividual ,
+                                                                <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Samsung_Galaxy_Note_(original)
+<http://dbpedia.org/resource/Samsung_Galaxy_Note_(original)> rdf:type owl:NamedIndividual ,
+                                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://dbpedia.org/resource/Sony_Xperia_Z3+
+<http://dbpedia.org/resource/Sony_Xperia_Z3+> rdf:type owl:NamedIndividual ,
+                                                       <http://www.semanticweb.org/sebas/assignment4/Smartphone> .
+
+
+###  http://jeroenhero.com/ontologies/Phones/Android
+<http://jeroenhero.com/ontologies/Phones/Android> rdf:type owl:NamedIndividual .
+
+
+###  http://jeroenhero.com/ontologies/Phones/Apple
+<http://jeroenhero.com/ontologies/Phones/Apple> rdf:type owl:NamedIndividual ,
+                                                         <http://jeroenhero.com/ontologies/Phones/Techfirm> .
+
+
+###  http://jeroenhero.com/ontologies/Phones/AppleTV
+<http://jeroenhero.com/ontologies/Phones/AppleTV> rdf:type owl:NamedIndividual ,
+                                                           <http://jeroenhero.com/ontologies/Phones/Device> ;
+                                                  <http://jeroenhero.com/ontologies/Phones/developedBy> <http://jeroenhero.com/ontologies/Phones/Apple> .
+
+
+###  http://jeroenhero.com/ontologies/Phones/GalaxyS9
+<http://jeroenhero.com/ontologies/Phones/GalaxyS9> rdf:type owl:NamedIndividual ,
+                                                            <http://jeroenhero.com/ontologies/Phones/SmartPhone> ;
+                                                   <http://jeroenhero.com/ontologies/Phones/developedBy> <http://jeroenhero.com/ontologies/Phones/Samsung> ;
+                                                   <http://jeroenhero.com/ontologies/Phones/has_os> <http://jeroenhero.com/ontologies/Phones/Android> ;
+                                                   <http://jeroenhero.com/ontologies/Phones/released_in_year> 2018 .
+
+
+###  http://jeroenhero.com/ontologies/Phones/Nokia
+<http://jeroenhero.com/ontologies/Phones/Nokia> rdf:type owl:NamedIndividual .
+
+
+###  http://jeroenhero.com/ontologies/Phones/Nokia3310
+<http://jeroenhero.com/ontologies/Phones/Nokia3310> rdf:type owl:NamedIndividual ,
+                                                             <http://jeroenhero.com/ontologies/Phones/Phone> ;
+                                                    <http://jeroenhero.com/ontologies/Phones/developedBy> <http://jeroenhero.com/ontologies/Phones/Nokia> ;
+                                                    <http://jeroenhero.com/ontologies/Phones/released_in_year> 2004 .
+
+
+###  http://jeroenhero.com/ontologies/Phones/Nokia8
+<http://jeroenhero.com/ontologies/Phones/Nokia8> rdf:type owl:NamedIndividual ,
+                                                          <http://jeroenhero.com/ontologies/Phones/Phone> ;
+                                                 <http://jeroenhero.com/ontologies/Phones/developedBy> <http://jeroenhero.com/ontologies/Phones/Nokia> ;
+                                                 <http://jeroenhero.com/ontologies/Phones/has_os> <http://jeroenhero.com/ontologies/Phones/Android> ;
+                                                 <http://jeroenhero.com/ontologies/Phones/released_in_year> 2017 .
+
+
+###  http://jeroenhero.com/ontologies/Phones/Samsung
+<http://jeroenhero.com/ontologies/Phones/Samsung> rdf:type owl:NamedIndividual ,
+                                                           <http://jeroenhero.com/ontologies/Phones/Techfirm> .
+
+
+###  http://jeroenhero.com/ontologies/Phones/iOS
+<http://jeroenhero.com/ontologies/Phones/iOS> rdf:type owl:NamedIndividual ,
+                                                       <http://jeroenhero.com/ontologies/Phones/OperatingSystem> .
+
+
+###  http://jeroenhero.com/ontologies/Phones/iPad
+<http://jeroenhero.com/ontologies/Phones/iPad> rdf:type owl:NamedIndividual ,
+                                                        <http://jeroenhero.com/ontologies/Phones/Tablet> ;
+                                               <http://jeroenhero.com/ontologies/Phones/developedBy> <http://jeroenhero.com/ontologies/Phones/Apple> ;
+                                               <http://jeroenhero.com/ontologies/Phones/has_os> <http://jeroenhero.com/ontologies/Phones/iOS> ;
+                                               <http://jeroenhero.com/ontologies/Phones/released_in_year> 2010 .
+
+
+###  http://jeroenhero.com/ontologies/Phones/iPhoneSE
+<http://jeroenhero.com/ontologies/Phones/iPhoneSE> rdf:type owl:NamedIndividual ,
+                                                            <http://jeroenhero.com/ontologies/Phones/SmartPhone> ;
+                                                   <http://jeroenhero.com/ontologies/Phones/developedBy> <http://jeroenhero.com/ontologies/Phones/Apple> ;
+                                                   <http://jeroenhero.com/ontologies/Phones/has_os> <http://jeroenhero.com/ontologies/Phones/iOS> ;
+                                                   <http://jeroenhero.com/ontologies/Phones/released_in_year> 2016 .
+
+
+###  http://jeroenhero.com/ontologies/Phones/iPhoneX
+<http://jeroenhero.com/ontologies/Phones/iPhoneX> rdf:type owl:NamedIndividual ,
+                                                           <http://jeroenhero.com/ontologies/Phones/SmartPhone> ;
+                                                  <http://jeroenhero.com/ontologies/Phones/developedBy> <http://jeroenhero.com/ontologies/Phones/Apple> ;
+                                                  <http://jeroenhero.com/ontologies/Phones/has_os> <http://jeroenhero.com/ontologies/Phones/iOS> ;
+                                                  <http://jeroenhero.com/ontologies/Phones/released_in_year> 2017 .
+
+
+###  http://www.semanticweb.org/final/smartphonedatabase/iPhone6
+<http://www.semanticweb.org/final/smartphonedatabase/iPhone6> rdf:type owl:NamedIndividual ,
+                                                                       <http://www.semanticweb.org/final/smartphonedatabase/OldiOSPhone> ,
+                                                                       <http://www.semanticweb.org/final/smartphonedatabase/Smartphone> ,
+                                                                       <http://www.semanticweb.org/final/smartphonedatabase/iOSPhone> ;
+                                                              <http://www.semanticweb.org/sebas/assignment4/hasOperatingSystem> <http://www.semanticweb.org/sebas/assignment4/iOS> ;
+                                                              <http://www.semanticweb.org/sebas/assignment4/hasScreenType> <http://www.semanticweb.org/sebas/assignment4/IPS> ;
+                                                              <http://jeroenhero.com/ontologies/Phones/released_in_year> "2016"^^xsd:int ;
+                                                              <http://www.semanticweb.org/final/smartphonedatabase/has_high_price> "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/Amoled
+<http://www.semanticweb.org/sebas/assignment4/Amoled> rdf:type owl:NamedIndividual ,
+                                                               <http://www.semanticweb.org/sebas/assignment4/Screentypes> .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/Android
+<http://www.semanticweb.org/sebas/assignment4/Android> rdf:type owl:NamedIndividual ,
+                                                                <http://www.semanticweb.org/sebas/assignment4/OperatingSystems> .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/Apple
+<http://www.semanticweb.org/sebas/assignment4/Apple> rdf:type owl:NamedIndividual ,
+                                                              <http://www.semanticweb.org/sebas/assignment4/Companies> .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/Camera
+<http://www.semanticweb.org/sebas/assignment4/Camera> rdf:type owl:NamedIndividual ,
+                                                               <http://www.semanticweb.org/sebas/assignment4/SmartDeviceProperties> .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/FingerPrintReader
+<http://www.semanticweb.org/sebas/assignment4/FingerPrintReader> rdf:type owl:NamedIndividual ,
+                                                                          <http://www.semanticweb.org/sebas/assignment4/SmartDeviceProperties> .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/GalaxyS9
+<http://www.semanticweb.org/sebas/assignment4/GalaxyS9> rdf:type owl:NamedIndividual ,
+                                                                 <http://www.semanticweb.org/sebas/assignment4/AndroidPhone> ;
+                                                        <http://www.semanticweb.org/sebas/assignment4/hasOperatingSystem> <http://www.semanticweb.org/sebas/assignment4/Android> ;
+                                                        <http://www.semanticweb.org/sebas/assignment4/hasScreenType> <http://www.semanticweb.org/sebas/assignment4/Amoled> ;
+                                                        <http://www.semanticweb.org/sebas/assignment4/inPossessionOf> <http://www.semanticweb.org/sebas/assignment4/Camera> ,
+                                                                                                                      <http://www.semanticweb.org/sebas/assignment4/FingerPrintReader> ,
+                                                                                                                      <http://www.semanticweb.org/sebas/assignment4/Touchscreen> ;
+                                                        <http://www.semanticweb.org/sebas/assignment4/isManufacturedBy> <http://www.semanticweb.org/sebas/assignment4/Samsung> .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/GalaxyTabS4
+<http://www.semanticweb.org/sebas/assignment4/GalaxyTabS4> rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/GearS3
+<http://www.semanticweb.org/sebas/assignment4/GearS3> rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/IPS
+<http://www.semanticweb.org/sebas/assignment4/IPS> rdf:type owl:NamedIndividual ,
+                                                            <http://www.semanticweb.org/sebas/assignment4/Screentypes> .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/Nintendo
+<http://www.semanticweb.org/sebas/assignment4/Nintendo> rdf:type owl:NamedIndividual ,
+                                                                 <http://www.semanticweb.org/sebas/assignment4/Companies> .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/NintendoSwitch
+<http://www.semanticweb.org/sebas/assignment4/NintendoSwitch> rdf:type owl:NamedIndividual ,
+                                                                       <http://www.semanticweb.org/sebas/assignment4/Smartdevice> ;
+                                                              <http://www.semanticweb.org/sebas/assignment4/hasScreenType> <http://www.semanticweb.org/sebas/assignment4/IPS> ;
+                                                              <http://www.semanticweb.org/sebas/assignment4/inPossessionOf> <http://www.semanticweb.org/sebas/assignment4/Touchscreen> ;
+                                                              <http://www.semanticweb.org/sebas/assignment4/isManufacturedBy> <http://www.semanticweb.org/sebas/assignment4/Nintendo> .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/Nokia
+<http://www.semanticweb.org/sebas/assignment4/Nokia> rdf:type owl:NamedIndividual ,
+                                                              <http://www.semanticweb.org/sebas/assignment4/Companies> .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/NokiaLumia950
+<http://www.semanticweb.org/sebas/assignment4/NokiaLumia950> rdf:type owl:NamedIndividual ,
+                                                                      <http://www.semanticweb.org/sebas/assignment4/Smartphone> ;
+                                                             <http://www.semanticweb.org/sebas/assignment4/hasScreenType> <http://www.semanticweb.org/sebas/assignment4/Amoled> ;
+                                                             <http://www.semanticweb.org/sebas/assignment4/inPossessionOf> <http://www.semanticweb.org/sebas/assignment4/Camera> ,
+                                                                                                                           <http://www.semanticweb.org/sebas/assignment4/FingerPrintReader> ;
+                                                             <http://www.semanticweb.org/sebas/assignment4/isManufacturedBy> <http://www.semanticweb.org/sebas/assignment4/Nokia> .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/Oled
+<http://www.semanticweb.org/sebas/assignment4/Oled> rdf:type owl:NamedIndividual ,
+                                                             <http://www.semanticweb.org/sebas/assignment4/Screentypes> .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/Samsung
+<http://www.semanticweb.org/sebas/assignment4/Samsung> rdf:type owl:NamedIndividual ,
+                                                                <http://www.semanticweb.org/sebas/assignment4/Companies> .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/Touchscreen
+<http://www.semanticweb.org/sebas/assignment4/Touchscreen> rdf:type owl:NamedIndividual ,
+                                                                    <http://www.semanticweb.org/sebas/assignment4/SmartDeviceProperties> .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/iOS
+<http://www.semanticweb.org/sebas/assignment4/iOS> rdf:type owl:NamedIndividual ,
+                                                            <http://www.semanticweb.org/sebas/assignment4/OperatingSystems> ;
+                                                   <http://www.semanticweb.org/sebas/assignment4/hasOperatingSystem> <http://www.semanticweb.org/sebas/assignment4/Android> .
+
+
+###  http://www.semanticweb.org/sebas/assignment4/iPhoneX
+<http://www.semanticweb.org/sebas/assignment4/iPhoneX> rdf:type owl:NamedIndividual ,
+                                                                <http://www.semanticweb.org/sebas/assignment4/iOSPhone> ;
+                                                       <http://www.semanticweb.org/sebas/assignment4/hasOperatingSystem> <http://www.semanticweb.org/sebas/assignment4/iOS> ;
+                                                       <http://www.semanticweb.org/sebas/assignment4/hasScreenType> <http://www.semanticweb.org/sebas/assignment4/Oled> ;
+                                                       <http://www.semanticweb.org/sebas/assignment4/inPossessionOf> <http://www.semanticweb.org/sebas/assignment4/Camera> ,
+                                                                                                                     <http://www.semanticweb.org/sebas/assignment4/FingerPrintReader> ,
+                                                                                                                     <http://www.semanticweb.org/sebas/assignment4/Touchscreen> ;
+                                                       <http://www.semanticweb.org/sebas/assignment4/isManufacturedBy> <http://www.semanticweb.org/sebas/assignment4/Apple> .
+
+
+###  Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi

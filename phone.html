@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang="en" ng-app="KRRclass">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{{PHONE}}</title>
+
+    <link rel="stylesheet" href="css/general.css">
+
+    <link rel="stylesheet" href="css/homepage.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+
+
+</head>
+<body id="body" ng-controller="MainCtrl">
+
+<header class="header-image">
+    <div class="container">
+        <div class="size-filler"></div>
+        <div class="col-md-6">
+            <h1 class="text-left"><p class="phone">{{PHONE}}</p></h1>
+            <h2 class="text-left">Find all information about <p class="phone">{{PHONE}}</p></h2>
+        </div>
+        <div class="col-md-6"></div>
+    </div>
+</header>
+
+<div class="topnav">
+    <a class="active" href="index.html">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <div class="search-container">
+        <form action="/action_page.php">
+            <!--<input type="text" placeholder="Search.." name="search">-->
+            <!--<button type="submit">Submit</button>-->
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="emptyline">
+        <div class="row">
+            <div class="container" style="margin-top: 50px; font-size: 200%;">More information about the smartphone</div></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="container" style="height: 800px; background-color: lightgray; margin-bottom: 100px">
+        <div class="col-md-6 imageside" id="imageside">
+
+        </div>
+        <div class="col-md-6 dataside">
+            <table class="table table-hover" style="margin-top: 20px">
+                <thead>
+                    <th>Property</th>
+                    <th>Data</th>
+                </thead>
+                <tr>
+                    <td>Name</td>
+                    <td><p class="phone">{{PHONE}}</p></td>
+                </tr>
+                <tr>
+                    <td>Price:</td>
+                    <td><p class="price">Currently Unknown</p></td>
+                </tr>
+                <tr>
+                    <td>Manufacturer</td>
+                    <td><p class="manu">Unknown</p></td>
+                </tr>
+                <tr>
+                    <td>Operating System</td>
+                    <td><p class="os">Currently Unknown</p></td>
+                </tr>
+                <tr>
+                    <td>Size</td>
+                    <td><p class="size">Currently Unknown</p></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><p class="desc">This information is currently not available. Take a look at the review below to learn more about this phone.</p></td>
+                </tr>
+                <tr>
+                    <td>Compare With</td>
+                    <td>
+                        <p>
+                        <form action="">
+                            <select name="phone1" id="selector">
+                            </select>
+                        </form>
+                        <button style="float: right;" onclick="handleCompare()">Compare</button>
+                        </p>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="container">
+        <div class="col-md-9">
+            <iframe class="ytvid2" id="ytvid" width="800px" height="500px"
+                    src="" allowfullscreen>
+            </iframe>
+        </div>
+        <div class="col-md-3" style="background-color: #2196F3; height: 500px">
+            <br>
+            <strong>Want to know more about how other users experience this phone?</strong>  Take a look at this review video!
+            <br>
+            <br>
+            <br>
+            <p><strong>Video created by:</strong></p>
+            <a id="channellink" href="none.html" target="_blank"><p style="color: black" id="channelID"></p></a>
+            <br>
+            <p><strong>Video uploaded on:</strong></p>
+            <p id="videoupload"></p>
+            <br>
+            <p><strong>Video Title</strong></p>
+            <p id="videotitle"></p>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="js/angular.min.js"></script>
+
+<script src="js/Chart.min.js"></script>
+<script src="js/angular-chart.min.js"></script>
+
+<script type="text/javascript" src="js/phonePage.js"></script>
+
+<script>
+    window.onload = loadDataFromURL();
+</script>
+
+</body>

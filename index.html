@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" ng-App="KRRclass">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartphoneCompare.nl</title>
+
+    <link rel="stylesheet" href="css/general.css">
+
+    <link rel="stylesheet" href="css/homepage.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+
+
+</head>
+<body ng-controller="MainCtrl">
+
+<header class="header-image">
+    <div class="container">
+        <div class="size-filler"></div>
+        <div class="col-md-6">
+            <h1 class="text-left">SmartphoneCompare</h1>
+            <h2 class="text-left">Find the best mobile phone for you!</h2>
+        </div>
+        <div class="col-md-6"></div>
+    </div>
+</header>
+
+<div class="topnav">
+    <a class="active" href="#home">Home</a>
+    <a href="#about">About SmartphoneCompare</a>
+    <a href="#contact">Contact</a>
+    <div class="search-container">
+        <form action="/action_page.php">
+            <!--<input type="text" placeholder="Which smartphone are you looking for?" name="search">-->
+            <!--<button type="submit">Search!</button>-->
+        </form>
+    </div>
+</div>
+
+
+
+<div class="row">
+        <div class="emptyline">
+        <div class="row">
+            <div class="container" style="margin-top: 50px; font-size: 200%;">Best-selling smartphones, click on a phone to see more details</div></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="container">
+        <div class="phonebox">
+            <div class="col-md-4 phoneitem" onclick="selectImage(1)">
+                <div id="photo1" class="col-md-7">
+
+                </div>
+                <div id="phone1" class="col-md-5">
+                    <br>
+                    Name: {NAME}<br>
+                    Size: {SIZE}<br>
+                    OS: {OS}<br>
+                    Price: {PRICE}
+                </div>
+            </div>
+            <div class="col-md-4 phoneitem" onclick="selectImage(2)">
+                <div id="photo2" class="col-md-7">
+
+            </div>
+                <div id="phone2" class="col-md-5">
+                    <br>
+                    Name: {NAME}<br>
+                    Size: {SIZE}<br>
+                    OS: {OS}<br>
+                    Price: {PRICE}
+                </div></div>
+            <div class="col-md-4 phoneitem" onclick="selectImage(3)">
+                <div id="photo3" class="col-md-7">
+
+            </div>
+                <div id="phone3" class="col-md-5">
+                    <br>
+                    Name: {NAME}<br>
+                    Size: {SIZE}<br>
+                    OS: {OS}<br>
+                    Price: {PRICE}
+                </div></div>
+            <div class="col-md-4 phoneitem" onclick="selectImage(4)">
+                <div id="photo4" class="col-md-7">
+
+                </div>
+                <div id="phone4" class="col-md-5">
+                    <br>
+                    Name: {NAME}<br>
+                    Size: {SIZE}<br>
+                    OS: {OS}<br>
+                    Price: {PRICE}
+                </div></div>
+            <div class="col-md-4 phoneitem" onclick="selectImage(5)">
+                <div id="photo5" class="col-md-7">
+
+                </div>
+                <div id="phone5" class="col-md-5">
+                    <br>
+                    Name: {NAME}<br>
+                    Size: {SIZE}<br>
+                    OS: {OS}<br>
+                    Price: {PRICE}
+                </div></div>
+            <div class="col-md-4 phoneitem" onclick="selectImage(6)">
+                <div id="photo6" class="col-md-7">
+
+                </div>
+                <div id="phone6" class="col-md-5">
+                    <br>
+                    Name: {NAME}<br>
+                    Size: {SIZE}<br>
+                    OS: {OS}<br>
+                    Price: {PRICE}
+                </div></div>
+            <div class="col-md-4 phoneitem" onclick="selectImage(7)">
+                <div id="photo7" class="col-md-7">
+
+                </div>
+                <div id="phone7" class="col-md-5">
+                    <br>
+                    Name: {NAME}<br>
+                    Size: {SIZE}<br>
+                    OS: {OS}<br>
+                    Price: {PRICE}
+                </div></div>
+            <div class="col-md-4 phoneitem" onclick="selectImage(8)">
+                <div id="photo8" class="col-md-7">
+
+                </div>
+                <div id="phone8" class="col-md-5">
+                    <br>
+                    Name: {NAME}<br>
+                    Size: {SIZE}<br>
+                    OS: {OS}<br>
+                    Price: {PRICE}
+                </div></div>
+            <div class="col-md-4 phoneitem" onclick="selectImage(9)">
+                <div id="photo9" class="col-md-7">
+
+                </div>
+                <div id="phone9" class="col-md-5">
+                    <br>
+                    Name: {NAME}<br>
+                    Size: {SIZE}<br>
+                    OS: {OS}<br>
+                    Price: {PRICE}
+                </div></div>
+            <div class="col-md-4 phoneitem" onclick="selectImage(10)">
+                <div id="photo10" class="col-md-7">
+
+                </div>
+                <div id="phone10" class="col-md-5">
+                    <br>
+                    Name: {NAME}<br>
+                    Size: {SIZE}<br>
+                    OS: {OS}<br>
+                    Price: {PRICE}
+                </div></div>
+            <div class="col-md-4 phoneitem" onclick="selectImage(11)">
+                <div id="photo11" class="col-md-7">
+
+                </div>
+                <div id="phone11" class="col-md-5">
+                    <br>
+                    Name: {NAME}<br>
+                    Size: {SIZE}<br>
+                    OS: {OS}<br>
+                    Price: {PRICE}
+                </div></div>
+            <div class="col-md-4 phoneitem" onclick="selectImage(12)">
+                <div id="photo12" class="col-md-7">
+
+                </div>
+                <div id="phone12" class="col-md-5">
+                    <br>
+                    Name: {NAME}<br>
+                    Size: {SIZE}<br>
+                    OS: {OS}<br>
+                    Price: {PRICE}
+                </div></div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- JavaScript libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/angular.min.js"></script>
+
+<script src="js/Chart.min.js"></script>
+<script src="js/angular-chart.min.js"></script>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
